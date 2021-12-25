@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Create Article{% endblock %}
+{% block content%}
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h1>Create Artilce</h1>
+            </div>
+            <div class="col-md-6 text-end"><a href="{% url 'list_of_articles' %}" class="btn btn-link">Back to List</a></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <form action="" method="post">
+                    {% csrf_token %}
+                {% for champ in form %}
+                <div class="form-group my-3">
+                    <label for="" class="form-label">{{ champ.label }}</label>                    
+                    {{ champ }}
+                </div>
+                {% endfor %}
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" type="submit"><i class="bi bi-plus"></i> Add Article</button>                    
+                </div>
+            </form>
+            </div>            
+        </div>
+    </div>
+{% endblock%}
